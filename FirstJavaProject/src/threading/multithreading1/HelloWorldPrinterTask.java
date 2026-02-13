@@ -1,4 +1,4 @@
-package multithreading1;
+package threading.multithreading1;
 
 public class HelloWorldPrinterTask implements Runnable {
 

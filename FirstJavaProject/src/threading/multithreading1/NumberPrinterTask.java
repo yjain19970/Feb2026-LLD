@@ -1,4 +1,4 @@
-package multithreading1;
+package threading.multithreading1;
 
 public class NumberPrinterTask implements Runnable {
     private int no;
