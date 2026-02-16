@@ -1,12 +1,16 @@
-package threading.addersubractor;
+package threading.addersubractorlock;
+
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Client {
 
     public static void main(String[] args) throws InterruptedException {
         Count c = new Count(); // shared var
+        Lock lock = new ReentrantLock(); // Lock Interface Impl.
         
-        Adder adder = new Adder(c);
-        Subractor subractor = new Subractor(c);
+        Adder adder = new Adder(c, lock);
+        Subractor subractor = new Subractor(c, lock);
 
         Thread t1 = new Thread(adder);
         Thread t2 = new Thread(subractor);

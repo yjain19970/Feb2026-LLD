@@ -1,4 +1,4 @@
-package threading.addersubractor;
+package threading.addersubractorsyncmethod;
 
 public class Client {
 
@@ -20,7 +20,7 @@ public class Client {
         t2.join(); // wait untill thread execution is completed.
         // they will wait till completion of t1 and t2.
 
-        System.out.println("Value is:  " + c.value);
+        System.out.println("Value is:  " + c.getValue());
 
     }
 }
