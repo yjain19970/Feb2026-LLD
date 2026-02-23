@@ -10,7 +10,7 @@ public class Subractor implements Runnable{
     @Override
     public void run() {
         for (int i = 0; i < 100000; i++) {
-            count.value -= 1;
+            count.atomicIntegerValue.addAndGet(-i);
         }
     }
 }
