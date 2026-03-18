@@ -68,13 +68,15 @@ public class Student {
     }    
     
     
+        // Part of StudentBuilder class.
+        // this:: StudentBuilder
         public Student build() throws Exception{
             // Add all the validations here.....
             if(this.age <18){
                 throw new Exception("Age is less than 18....");
             }
             
-            // return this;
+            // return this; ---> StudentBuilder()
 
 
             return new Student(this); // now I am able to access Private constructor...
