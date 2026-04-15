@@ -18,6 +18,11 @@ public class Game {
     private int nextMovePlayerIndex; // N 
     private List<WinningStrategy> winningStrategies; // N
     
+    /**
+     * Todo: Implement the Builder DP for GameController by self.
+     * @param dimension
+     * @param players
+     */
     public Game(int dimension,
                 List<Player> players){
         this.board = new Board(dimension);
@@ -82,6 +87,7 @@ public class Game {
          * S5. Calculate the next player Index
          * S6. Check winner
          */
+        
         //S1. 
         Player currentPlayer = players.get(nextMovePlayerIndex);
         System.out.println("It is player: "  + currentPlayer.getName()+ "'s move.");
@@ -102,8 +108,8 @@ public class Game {
 
         // Fetching cell from a 2D matrix.
         Cell currentCell = board.getBoard().get(currentRow).get(currentCol);
-        currentCell.setCellState(CellState.FILLED);
-        currentCell.setPlayer(currentPlayer);
+        currentCell.setCellState(CellState.FILLED); // Marking the cell as FILLED
+        currentCell.setPlayer(currentPlayer); // Adding the player to the cell.
 
         // Make a move.
         Move newMoveObj = new Move(currentCell, currentPlayer);
@@ -126,6 +132,18 @@ public class Game {
     }
     
     public void undo() {
+        /**
+         * Steps for UNDO:
+         * 
+         * 1. Get the last move from the moves list
+         * 2. Remove the last move from the list.
+         * 3. Update the cell status to EMPTY and player to null in CELL.
+         * 4. Decreament the lastPlayerIndex
+         * 5. handle undo in winning strategy.
+         */
+
+
+        
         
     }
 
@@ -134,16 +152,18 @@ public class Game {
     }
 
 
-
-
-    // PRIVATE methods
-
+    /**
+     * Al the Private Methods start from here.
+     */
     private boolean checkWinner(Board board, Move newMove) {
         for(WinningStrategy wStrategy : winningStrategies){
-            
+            if(wStrategy.checkWinner(board, newMove)){
+                System.out.println("Check winner returns true : ");
+                return true;
+            }
         }
         return false;
-    }    
+    }  
 
     // toDo: to implement by own.
     private boolean invalidMove(Move currentMove) {
