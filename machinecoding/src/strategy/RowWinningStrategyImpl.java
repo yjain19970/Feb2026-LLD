@@ -59,8 +59,14 @@ public class RowWinningStrategyImpl implements WinningStrategy {
      */
     @Override
     public void handleUndo(Board board, Move move) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'handleUndo'");
+        // Reduce the count simply.
+
+        int rowNo = move.getCell().getRow();
+        String playerSymbol = move.getPlayer().getSymbol();
+
+        // Finally reducing the count. 
+        Map<String,Integer> internalMap = counts.get(rowNo);
+        internalMap.put(playerSymbol, internalMap.get(playerSymbol)-1);
     }
     
 }

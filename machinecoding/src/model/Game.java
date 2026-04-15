@@ -142,7 +142,29 @@ public class Game {
          * 5. handle undo in winning strategy.
          */
 
+        if(moves.size()==0){
+            System.out.println("no moves made yet. Cannot undo");
+            return;
+        }
+        if(!gameState.equals(GameState.IN_PROGRESS)){
+            System.out.println("Game is not in-progress anymore. Cannot undo");
+            return;
+        }
 
+        Move lastMove = moves.get(moves.size()-1);
+        moves.remove(lastMove);
+
+
+        nextMovePlayerIndex -=1;
+        nextMovePlayerIndex = (nextMovePlayerIndex + players.size())%players.size();
+
+        // Last part:
+        for(WinningStrategy strategy : winningStrategies){
+            strategy.handleUndo(board, lastMove);
+        }
+
+        lastMove.getCell().setCellState(CellState.EMPTY);
+        lastMove.getCell().setPlayer(null);
         
         
     }

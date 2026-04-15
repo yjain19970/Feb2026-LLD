@@ -26,6 +26,18 @@ public class Driver {
                 // Display the board to the user to see where they can make a move.
                 gameController.displayBoard(game);
 
+                String undoInput = "N";
+                if(game.getMoves().size()!=0){
+                    System.out.print("Do you want to do Undo: Y/N");
+                    undoInput = scanner.next();
+                }
+                
+
+                if(undoInput.equals("Y")){
+                    gameController.undo(game);
+                    continue;
+                }
+
                 System.out.println("Please make a move... ");
                 gameController.makeMove(game);
 
@@ -49,3 +61,15 @@ public class Driver {
     }
 
 }
+
+/**
+ * 
+ * 
+ * Pending part;
+ * 1. DiagonalWinningStrategy (checkWinner and handleUndo)
+ * 2. Validations after Move for a player (Row>0 and <N and Col>0 and <N)
+ * 3. GameClass: You can have BuilderDP
+ * 4. BoTPlayingStragey: Factory.
+ * 
+ * 
+ */

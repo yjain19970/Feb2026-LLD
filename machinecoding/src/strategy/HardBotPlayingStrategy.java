@@ -3,7 +3,7 @@ package strategy;
 import model.Board;
 import model.Move;
 
-public class EasyBotPlayingStrategy implements BotPlayingStrategy {
+public class HardBotPlayingStrategy implements BotPlayingStrategy {
 
     @Override
     public Move makeMove(Board p) {

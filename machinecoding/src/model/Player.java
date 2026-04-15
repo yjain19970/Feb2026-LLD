@@ -2,12 +2,16 @@ package model;
 
 import java.util.Scanner;
 
+import factory.BotDifficultyLevelFactory;
+import strategy.BotPlayingStrategy;
+
 public class Player {
     private String symbol;
     private String name;
     private Long id;
     private PlayerType playerType;
     private Scanner scanner; // I have to take, name/symbol as input from player.
+    private DifficultyLevel difficultyLevel;
 
     public Player(Long id, String name, String symbol, PlayerType type) {
         this.id = id;
@@ -15,6 +19,7 @@ public class Player {
         this.name = name;
         this.symbol = symbol;
         this.scanner = new Scanner(System.in);
+        this.difficultyLevel = DifficultyLevel.EASY;
     }
 
     
@@ -59,18 +64,9 @@ public class Player {
          */
         if(this.playerType.equals(PlayerType.BOT)){
             // Skip taking the input and decide the move on the basis of BotPlayingStrategy.
-            /**
-             * ToDo: Implement it.
-             * 
-             * S1. Create a factory and pass the DifficultyLevel
-             * S2. On the basis of difficultyLevel, create a move.
-             * S3. finally return.
-             * 
-             * EASY: Make the move at first EMPTY cell in the board
-             * MEDIUM: Always make move in the center, if center is NA, then make a move on Row center or column center.
-             * HARD: Have some complex algorithm.
-             * 
-             */
+            BotPlayingStrategy botPlayingStrategy =  BotDifficultyLevelFactory.getBotPlayingStrategyByDifficultyLevel(this.difficultyLevel);
+            Move newBotMove = botPlayingStrategy.makeMove(board);
+            return newBotMove;
         }
 
         System.out.println("Please select Row number");
