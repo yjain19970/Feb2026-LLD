@@ -1,9 +1,9 @@
-package model;
+package tictactoe.src.model;
 
 import java.util.Scanner;
 
-import factory.BotDifficultyLevelFactory;
-import strategy.BotPlayingStrategy;
+import tictactoe.src.strategy.BotPlayingStrategy;
+
 
 public class Player {
     private String symbol;
@@ -54,28 +54,28 @@ public class Player {
      * @return
      */
     public Move getInputAndMakeMove(Board board) {
-        /**
-         * S1. Check whether player is a BOT or not.
-         * S2. If the player is HUMAN:
-         *      - Take Row Input
-         *      - Take Col Input
-         * 
-         * S3. Return the new Move()    
-         */
-        if(this.playerType.equals(PlayerType.BOT)){
-            // Skip taking the input and decide the move on the basis of BotPlayingStrategy.
-            BotPlayingStrategy botPlayingStrategy =  BotDifficultyLevelFactory.getBotPlayingStrategyByDifficultyLevel(this.difficultyLevel);
-            Move newBotMove = botPlayingStrategy.makeMove(board);
-            return newBotMove;
-        }
+      /**
+       * 
+       * S1. check for playerType
+       *    - get the difficulty level and according to that, get object
+       *        of the strategy (EASY/MEDIUM/HARD) and fetch the input.
+       * 
+       * S2. If the player type is HUMAN
+       *    - Take R and C input.
+       * 
+       */
 
-        System.out.println("Please select Row number");
-        int row = scanner.nextInt();
-        System.out.println("Please select Column number");
-        int col = scanner.nextInt();
+      if(playerType.equals(PlayerType.BOT)){
+        BotPlayingStrategy botPlayingStrategy = tictactoe.src.factory.BotDifficultyLevelFactory.getBotPlayingStrategyByDifficultyLevel(difficultyLevel);
+        return botPlayingStrategy.makeMove(board);
+      }
 
-        // Create a new Move and Return from here.
-        return new Move(new Cell(row, col), this);
+      System.out.println("Please input the row number");
+      int row = scanner.nextInt();
+      System.out.println("Please input the col number");
+      int col = scanner.nextInt();
+
+      return new Move(new Cell(row, col), this);
     }    
 
 }

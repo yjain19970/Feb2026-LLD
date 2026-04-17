@@ -1,16 +1,13 @@
-package controller;
+package tictactoe.src.controller;
 
 import java.util.List;
 
-import model.Game;
-import model.GameState;
-import model.Player;
+import tictactoe.src.model.Game;
+import tictactoe.src.model.GameState;
+import tictactoe.src.model.Player;
+
 
 public class GameController {
-    /**
-     * Responsible for exposing functions that
-     * are supported by the Game.
-     */
 
     public Game startGame(int dimension, List<Player> players){
         return new Game(dimension, players);
@@ -27,7 +24,7 @@ public class GameController {
     public void undo(Game game){
         game.undo();
     }
-    
+
     public void displayBoard(Game game){
         game.printBoard();
     }
@@ -35,5 +32,6 @@ public class GameController {
     public Player getWinner(Game game){
         return game.getWinner();
     }
+
 
 }

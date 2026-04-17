@@ -1,9 +1,9 @@
-package strategy;
+package tictactoe.src.strategy;
 
-import model.Board;
-import model.Move;
+import tictactoe.src.model.Board;
+import tictactoe.src.model.Move;
 
-public class HardBotPlayingStrategy implements BotPlayingStrategy {
+public class EasyBotPlayingStrategy implements BotPlayingStrategy {
 
     @Override
     public Move makeMove(Board p) {

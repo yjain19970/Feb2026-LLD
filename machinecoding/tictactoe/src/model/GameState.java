@@ -1,4 +1,4 @@
-package model;
+package tictactoe.src.model;
 
 public enum GameState {
     IN_PROGRESS,

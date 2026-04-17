@@ -1,10 +1,10 @@
-package factory;
+package tictactoe.src.factory;
 
-import model.DifficultyLevel;
-import strategy.BotPlayingStrategy;
-import strategy.EasyBotPlayingStrategy;
-import strategy.HardBotPlayingStrategy;
-import strategy.MediumBotPlayingStrategy;
+import tictactoe.src.model.DifficultyLevel;
+import tictactoe.src.strategy.BotPlayingStrategy;
+import tictactoe.src.strategy.EasyBotPlayingStrategy;
+import tictactoe.src.strategy.HardBotPlayingStrategy;
+import tictactoe.src.strategy.MediumBotPlayingStrategy;
 
 public class BotDifficultyLevelFactory {
     

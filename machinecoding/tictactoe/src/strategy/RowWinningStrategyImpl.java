@@ -1,10 +1,8 @@
-package strategy;
+package tictactoe.src.strategy;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import model.Board;
-import model.Move;
 
 public class RowWinningStrategyImpl implements WinningStrategy {
     /**
@@ -33,22 +31,7 @@ public class RowWinningStrategyImpl implements WinningStrategy {
      * 3. Update the count in the hashmap
      * 4. Check whether the count is == board.size()
      */
-        int rowNo = move.getCell().getRow();
-        String symbol = move.getCell().getPlayer().getSymbol();
-
-        if(!counts.containsKey(rowNo)){
-            counts.put(rowNo,new HashMap<>()); // 
-        }
         
-        Map<String, Integer> internalMap =  counts.get(rowNo);
-        if(!internalMap.containsKey(symbol)){
-            internalMap.put(symbol, 0);
-        }
-        internalMap.put(symbol, internalMap.get(symbol)+1);
-
-        if(internalMap.get(symbol).equals(board.getSize())){
-            return true;
-        }
 
         return false;
     }
@@ -61,12 +44,6 @@ public class RowWinningStrategyImpl implements WinningStrategy {
     public void handleUndo(Board board, Move move) {
         // Reduce the count simply.
 
-        int rowNo = move.getCell().getRow();
-        String playerSymbol = move.getPlayer().getSymbol();
-
-        // Finally reducing the count. 
-        Map<String,Integer> internalMap = counts.get(rowNo);
-        internalMap.put(playerSymbol, internalMap.get(playerSymbol)-1);
     }
     
 }

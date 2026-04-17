@@ -1,7 +1,6 @@
-package strategy;
+package tictactoe.src.strategy;
 
-import model.Board;
-import model.Move;
+
 
 public class DiagonalWinningStrategyImpl implements WinningStrategy {
 

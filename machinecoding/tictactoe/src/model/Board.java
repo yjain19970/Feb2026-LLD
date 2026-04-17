@@ -1,4 +1,4 @@
-package model;
+package tictactoe.src.model;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,11 +32,10 @@ public class Board {
     }
 
     public void printBoard() {
-        for(List<Cell> row : board){
-            for(Cell cell : row){
+        for(List<Cell> row: board){
+            for(Cell cell: row){
                 cell.display();
             }
-            System.out.print("\n");
         }
     }
     /**

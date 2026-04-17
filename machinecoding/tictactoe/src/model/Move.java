@@ -1,4 +1,4 @@
-package model;
+package tictactoe.src.model;
 
 public class Move {
     private Cell cell;

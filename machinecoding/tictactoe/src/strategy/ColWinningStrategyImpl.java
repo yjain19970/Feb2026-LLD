@@ -1,10 +1,12 @@
-package strategy;
+package tictactoe.src.strategy;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import model.Board;
-import model.Move;
+import tictactoe.src.model.Board;
+import tictactoe.src.model.Move;
+
+
 
 public class ColWinningStrategyImpl implements WinningStrategy {
 

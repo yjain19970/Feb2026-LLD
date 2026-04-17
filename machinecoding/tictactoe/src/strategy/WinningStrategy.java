@@ -1,4 +1,4 @@
-package strategy;
+package tictactoe.src.strategy;
 
 import model.Board;
 import model.Move;

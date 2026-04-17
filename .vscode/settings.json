@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
-        "machinecoding/src"
+        "machinecoding/src",
+        "machinecoding"
     ],
     "java.debug.settings.onBuildFailureProceed": true
 }

@@ -1,4 +1,4 @@
-package model;
+package tictactoe.src.model;
 
 public class Cell {
     private int row;
@@ -51,7 +51,7 @@ public class Cell {
         if(this.player == null){
             System.out.print("| - |");
         }else{
-            System.out.print("| " + player.getSymbol() + " |");
+            System.out.print("| "+ this.player.getSymbol()  +" |");
         }
     }
 
