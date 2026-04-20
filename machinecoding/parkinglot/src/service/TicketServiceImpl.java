@@ -1,35 +1,22 @@
-package service;
+package parkinglot.src.service;
 
 import java.util.Date;
 import java.util.Optional;
 import java.util.Random;
 import java.util.UUID;
 
-import exception.InvalidParamException;
-import exception.SpotNotFoundException;
-import factory.ParkingSpotAssignmentFactory;
-import model.ParkingLot;
-import model.ParkingLotGate;
-import model.ParkingSpot;
-import model.Ticket;
-import model.Vehicle;
-import model.enums.SpotAssignmentStrategyType;
-import repository.GateRepo;
-import repository.ParkingLotRepo;
-import repository.TicketRepo;
-import strategy.SpotAssignmentStrategy;
+import parkinglot.src.factory.ParkingSpotAssignmentFactory;
+import parkinglot.src.model.ParkingSpot;
+import parkinglot.src.model.Ticket;
+import parkinglot.src.model.enums.SpotAssignmentStrategyType;
+import parkinglot.src.repository.GateRepo;
+import parkinglot.src.repository.ParkingLotRepo;
+import parkinglot.src.repository.TicketRepo;
+
+
 
 public class TicketServiceImpl implements TicketService {
-    private TicketRepo ticketRepo;
-    private GateRepo gateRepo;
-    private ParkingLotRepo parkingLotRepo;
-    
 
-    public TicketServiceImpl(TicketRepo ticketRepo, GateRepo gateRepo, ParkingLotRepo parkingLotRepo) {
-        this.ticketRepo = ticketRepo;
-        this.gateRepo = gateRepo;
-        this.parkingLotRepo = parkingLotRepo;
-    }
 
 
     @Override

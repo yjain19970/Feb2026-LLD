@@ -1,4 +1,4 @@
-package dto;
+package parkinglot.src.dto;
 
 import java.util.List;
 

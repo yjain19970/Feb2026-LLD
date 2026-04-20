@@ -2,6 +2,8 @@ package tictactoe.src.controller;
 
 import java.util.List;
 
+import tictactoe.src.exception.InvalidMoveException;
+import tictactoe.src.exception.NoValidCellFoundException;
 import tictactoe.src.model.Game;
 import tictactoe.src.model.GameState;
 import tictactoe.src.model.Player;
@@ -17,17 +19,24 @@ public class GameController {
         return game.getGameState();
     }
 
-    public void makeMove(Game game){
+    public void makeMove(Game game) throws NoValidCellFoundException, InvalidMoveException{
         game.makeMove();
     }
 
-    public void undo(Game game){
+    public void undo(Game game) throws InvalidMoveException{
         game.undo();
     }
 
     public void displayBoard(Game game){
         game.printBoard();
     }
+    /**
+     * 
+     * | - | - | - |
+     * | - | X | - |
+     * | - | - | O |
+     * 
+     */
 
     public Player getWinner(Game game){
         return game.getWinner();

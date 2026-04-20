@@ -1,13 +1,12 @@
-package factory;
+package parkinglot.src.factory;
 
-import model.enums.SpotAssignmentStrategyType;
-import strategy.RandomSpotAssignmentStrategyImpl;
-import strategy.SpotAssignmentStrategy;
+import parkinglot.src.model.enums.SpotAssignmentStrategyType;
+import parkinglot.src.service.SpotAssignmentStrategy;
 
 public class ParkingSpotAssignmentFactory {
     public static SpotAssignmentStrategy getSpotAssignmentStrategy(SpotAssignmentStrategyType type){
         switch (type) {
-            case RANDOM:
+            case RAND:
                 return new RandomSpotAssignmentStrategyImpl();
             default:
                 return new RandomSpotAssignmentStrategyImpl();

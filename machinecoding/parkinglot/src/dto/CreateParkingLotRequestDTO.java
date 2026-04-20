@@ -1,10 +1,7 @@
-package dto;
+package parkinglot.src.dto;
 
 import java.util.List;
 
-import model.enums.FeesCalculatorStrategyType;
-import model.enums.ParkingLotStatus;
-import model.enums.SpotAssignmentStrategyType;
 
 public class CreateParkingLotRequestDTO {
     private List<ParkingFloorDTO> parkingFloors;

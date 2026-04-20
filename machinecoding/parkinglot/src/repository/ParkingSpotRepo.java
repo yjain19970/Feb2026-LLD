@@ -1,4 +1,4 @@
-package repository;
+package parkinglot.src.repository;
 
 public class ParkingSpotRepo {
     /**

@@ -1,12 +1,14 @@
-package service;
+package parkinglot.src.service;
 
 import java.util.List;
 
-import model.ParkingFloor;
-import model.ParkingLotGate;
-import model.enums.FeesCalculatorStrategyType;
-import model.enums.ParkingLotStatus;
-import model.enums.SpotAssignmentStrategyType;
+import parkinglot.src.model.ParkingFloor;
+import parkinglot.src.model.ParkingLotGate;
+import parkinglot.src.model.enums.FeesCalculatorStrategyType;
+import parkinglot.src.model.enums.ParkingLotStatus;
+import parkinglot.src.model.enums.SpotAssignmentStrategyType;
+
+
 
 public interface ParkingLotService {
     public void createParkingLot(List<ParkingFloor> parkingFloors, List<ParkingLotGate> parkingLotGates,

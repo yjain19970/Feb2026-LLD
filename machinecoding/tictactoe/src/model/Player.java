@@ -2,7 +2,11 @@ package tictactoe.src.model;
 
 import java.util.Scanner;
 
+import tictactoe.src.exception.NoValidCellFoundException;
+import tictactoe.src.factory.BotDifficultyLevelFactory;
 import tictactoe.src.strategy.BotPlayingStrategy;
+
+
 
 
 public class Player {
@@ -52,8 +56,9 @@ public class Player {
      * For making the move we need to take Input from the player.
      * @param board
      * @return
+     * @throws NoValidCellFoundException 
      */
-    public Move getInputAndMakeMove(Board board) {
+    public Move getInputAndMakeMove(Board board) throws NoValidCellFoundException {
       /**
        * 
        * S1. check for playerType
@@ -64,10 +69,9 @@ public class Player {
        *    - Take R and C input.
        * 
        */
-
       if(playerType.equals(PlayerType.BOT)){
-        BotPlayingStrategy botPlayingStrategy = tictactoe.src.factory.BotDifficultyLevelFactory.getBotPlayingStrategyByDifficultyLevel(difficultyLevel);
-        return botPlayingStrategy.makeMove(board);
+        BotPlayingStrategy botPlayingStrategy = BotDifficultyLevelFactory.getBotPlayingStrategyByDifficultyLevel(difficultyLevel);
+        return botPlayingStrategy.makeMove(board, this);
       }
 
       System.out.println("Please input the row number");

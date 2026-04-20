@@ -31,11 +31,12 @@ public class Board {
         this.board = board;
     }
 
-    public void printBoard() {
-        for(List<Cell> row: board){
-            for(Cell cell: row){
+    public void printBoard(){
+        for(List<Cell> cellRow : board){
+            for(Cell cell: cellRow){
                 cell.display();
             }
+            System.out.print("\n");
         }
     }
     /**

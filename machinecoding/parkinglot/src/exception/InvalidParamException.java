@@ -1,4 +1,4 @@
-package exception;
+package parkinglot.src.exception;
 
 public class InvalidParamException extends Exception {
 

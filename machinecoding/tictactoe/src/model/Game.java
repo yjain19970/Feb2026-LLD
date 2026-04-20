@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import tictactoe.src.strategy.WinningStrategy;
+import tictactoe.src.exception.InvalidMoveException;
+import tictactoe.src.exception.NoValidCellFoundException;
 import tictactoe.src.strategy.ColWinningStrategyImpl;
 import tictactoe.src.strategy.DiagonalWinningStrategyImpl;
 import tictactoe.src.strategy.RowWinningStrategyImpl;
@@ -83,26 +85,48 @@ public class Game {
     }
 
 
-    public void makeMove() {
-        /***
+     /***
          * S1. Get the currentPlayer for whom we would like to make a move.
          * S2. Take Input (Row,Col) from the player
          * S3. Validate the Input (Eg: Invalid R/C, cell is not empty)
          * S4. Store the move to moves[] and mark the cell as FILLED
          * S5. Increment the `nextMovePlayerIndex`.
          * S6. Check for player win. If player has won, assign the winner to that player. 
-         */
-
+     */
+    public void makeMove() throws NoValidCellFoundException, InvalidMoveException {
+        // S1
         Player currentPlayer = players.get(nextMovePlayerIndex);
         System.out.println("It is player: " + currentPlayer.getName() + " 's move");
-
+        // S2
         Move newMove =  currentPlayer.getInputAndMakeMove(board);
+        //S3
+        if(invalidMove(newMove)){
+            throw new InvalidMoveException("move is invalid!");
+        }
 
-        // Resume from S3. 
+        int currRow = newMove.getCell().getRow();
+        int currCol = newMove.getCell().getCol();
+        System.out.println("move is made in --> Row: " + currRow + "col: " + currCol);
 
+        Cell currCell = this.getBoard().getBoard().get(currRow).get(currCol);
+        currCell.setCellState(CellState.FILLED);
+        currCell.setPlayer(currentPlayer);
+        // S4.
+        Move finalMove = new Move(currCell, currentPlayer);
+        moves.add(finalMove);
+        // S5.
+        nextMovePlayerIndex +=1;
+        nextMovePlayerIndex %= players.size();
+        // S6.
+        if(checkWinner(board, finalMove)){
+            this.winner = currentPlayer;
+            this.gameState = GameState.WIN;
+        }else if(moves.size() == this.getBoard().getSize()* this.getBoard().getSize()){
+            this.gameState = GameState.DRAW;
+        }
     }
     
-    public void undo() {
+    public void undo() throws InvalidMoveException {
         /**
          * Steps for UNDO:
          * 
@@ -112,6 +136,27 @@ public class Game {
          * 4. Decreament the lastPlayerIndex
          * 5. handle undo in winning strategy.
          */
+        if(moves.size()==0){
+            System.out.println("No moves made yet!");
+            //throw new InvalidMoveException("No moves made yet!");
+        }
+        if(!gameState.equals(GameState.IN_PROGRESS)){
+            System.out.println("Game is not in progress!");
+            //throw new InvalidMoveException("Game is not in progress anymore!");
+        }
+
+        Move lastMove = moves.get(moves.size()-1);
+        moves.remove(lastMove);
+
+        nextMovePlayerIndex -= 1;
+        nextMovePlayerIndex = (nextMovePlayerIndex + players.size())%players.size();
+
+        for(WinningStrategy winningStrategy: winningStrategies){
+            winningStrategy.handleUndo(board, lastMove);
+        }
+        
+        lastMove.getCell().setCellState(CellState.EMPTY);
+        lastMove.getCell().setPlayer(null);
     }
 
     public void printBoard(){
@@ -123,6 +168,12 @@ public class Game {
      * Al the Private Methods start from here.
      */
     private boolean checkWinner(Board board, Move newMove) {
+        for(WinningStrategy winningStrategy: winningStrategies){
+            if(winningStrategy.checkWinner(board, newMove)){
+                System.out.println("Player has won the game: "+ winningStrategy.getClass().getSimpleName());
+                return true;
+            }
+        }
         return false;
     }  
 
@@ -134,6 +185,10 @@ public class Game {
          * 1. Row>=0 , Col>=0 && row<n && col <n
          * 2. If the current cell state is NOT EMPTY -- then return true.
          */
+        Cell currMoveCell = this.getBoard().getBoard().get(currentMove.getCell().getRow()).get(currentMove.getCell().getCol());
+        if(currMoveCell.getCellState().equals(CellState.FILLED)){
+            return true;
+        }
         return false;
     }
 

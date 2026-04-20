@@ -1,4 +1,4 @@
-package model;
+package parkinglot.src.model;
 
 import model.enums.GateStatus;
 import model.enums.GateType;

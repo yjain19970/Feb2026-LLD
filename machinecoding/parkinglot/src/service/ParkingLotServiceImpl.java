@@ -1,14 +1,14 @@
-package service;
-
+package parkinglot.src.service;
 import java.util.List;
 
-import model.ParkingFloor;
-import model.ParkingLot;
-import model.ParkingLotGate;
-import model.enums.FeesCalculatorStrategyType;
-import model.enums.ParkingLotStatus;
-import model.enums.SpotAssignmentStrategyType;
-import repository.ParkingLotRepo;
+import parkinglot.src.model.ParkingFloor;
+import parkinglot.src.model.ParkingLot;
+import parkinglot.src.model.ParkingLotGate;
+import parkinglot.src.model.enums.FeesCalculatorStrategyType;
+import parkinglot.src.model.enums.ParkingLotStatus;
+import parkinglot.src.model.enums.SpotAssignmentStrategyType;
+import parkinglot.src.repository.ParkingLotRepo;
+
 
 public class ParkingLotServiceImpl implements ParkingLotService {
     private ParkingLotRepo parkingLotRepo;

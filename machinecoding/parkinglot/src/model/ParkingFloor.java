@@ -1,4 +1,4 @@
-package model;
+package parkinglot.src.model;
 
 import java.util.List;
 

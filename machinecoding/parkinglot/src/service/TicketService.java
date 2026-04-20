@@ -1,9 +1,9 @@
-package service;
+package parkinglot.src.service;
 
-import exception.InvalidParamException;
-import exception.SpotNotFoundException;
-import model.Ticket;
-import model.Vehicle;
+import parkinglot.src.exception.InvalidParamException;
+import parkinglot.src.exception.SpotNotFoundException;
+import parkinglot.src.model.Ticket;
+import parkinglot.src.model.Vehicle;
 
 public interface TicketService {
     

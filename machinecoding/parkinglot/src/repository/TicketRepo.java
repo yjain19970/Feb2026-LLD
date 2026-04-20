@@ -1,9 +1,11 @@
-package repository;
+package parkinglot.src.repository;
 
 import java.util.Map;
 import java.util.Optional;
 
-import model.Ticket;
+import parkinglot.src.model.Ticket;
+
+
 
 public class TicketRepo {
     /**

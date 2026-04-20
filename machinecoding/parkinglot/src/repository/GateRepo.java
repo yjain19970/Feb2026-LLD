@@ -1,9 +1,10 @@
-package repository;
+package parkinglot.src.repository;
 
 import java.util.Map;
 import java.util.Optional;
 
-import model.ParkingLotGate;
+import parkinglot.src.model.ParkingLotGate;
+
 
 public class GateRepo {
     Map<Long,ParkingLotGate> gateRepoMap; // this id should be increamental.

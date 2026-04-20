@@ -1,11 +1,6 @@
-package controller;
+package parkinglot.src.controller;
 
-import dto.CreateTicketDTO;
-import exception.InvalidParamException;
-import exception.SpotNotFoundException;
-import model.Ticket;
-import service.TicketService;
-import transformer.TicketTransformer;
+
 
 public class TicketController {
     private TicketService ticketService;

@@ -1,6 +1,6 @@
-package dto;
+package parkinglot.src.dto;
 
-import model.enums.VehicleType;
+
 
 public class VehicleDTO {
     private String regNo;

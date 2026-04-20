@@ -1,14 +1,8 @@
-package controller;
-
+package parkinglot.src.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import dto.CreateParkingLotRequestDTO;
-import dto.GateDTO;
-import dto.ParkingFloorDTO;
-import model.ParkingFloor;
-import model.ParkingLotGate;
-import service.ParkingLotService;
+
 
 public class ParkingLotController {
     private ParkingLotService parkingLotService;
