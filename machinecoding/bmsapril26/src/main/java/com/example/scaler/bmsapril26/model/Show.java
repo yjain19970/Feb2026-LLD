@@ -4,6 +4,9 @@ import java.util.Date;
 import java.util.List;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,9 +14,12 @@ import lombok.Setter;
 @Setter
 @Entity(name = "shows")
 public class Show extends BaseModel {
+    @ManyToOne
     private Movie movie;
     private Date startTime;
     private Date endTime;
+    @ManyToOne
     private Screen screen;
-    private List<Feature> features;  
+    @Enumerated(EnumType.ORDINAL)
+    private List<Feature> features;
 }
