@@ -2,33 +2,29 @@ package parkinglot.src.dto;
 
 import java.util.List;
 
+import parkinglot.src.model.enums.FeesCalculatorStrategyType;
+import parkinglot.src.model.enums.ParkingLotStatus;
+import parkinglot.src.model.enums.SpotAssignmentStrategyType;
 
+// DTO is a POJO class.
 public class CreateParkingLotRequestDTO {
     private List<ParkingFloorDTO> parkingFloors;
-    private List<GateDTO> parkingLotGates;
+    private List<ParkingLotGateDTO> parkingLotGates;
     private ParkingLotStatus parkingLotStatus;
     private SpotAssignmentStrategyType spotAssignmentStrategyType;
     private FeesCalculatorStrategyType feesCalculatorStrategyType;
-    
-    public CreateParkingLotRequestDTO(List<ParkingFloorDTO> parkingFloors, List<GateDTO> parkingLotGates,
-            ParkingLotStatus parkingLotStatus, SpotAssignmentStrategyType spotAssignmentStrategyType,
-            FeesCalculatorStrategyType feesCalculatorStrategyType) {
-        this.parkingFloors = parkingFloors;
-        this.parkingLotGates = parkingLotGates;
-        this.parkingLotStatus = parkingLotStatus;
-        this.spotAssignmentStrategyType = spotAssignmentStrategyType;
-        this.feesCalculatorStrategyType = feesCalculatorStrategyType;
-    }
+
+
     public List<ParkingFloorDTO> getParkingFloors() {
         return parkingFloors;
     }
     public void setParkingFloors(List<ParkingFloorDTO> parkingFloors) {
         this.parkingFloors = parkingFloors;
     }
-    public List<GateDTO> getParkingLotGates() {
+    public List<ParkingLotGateDTO> getParkingLotGates() {
         return parkingLotGates;
     }
-    public void setParkingLotGates(List<GateDTO> parkingLotGates) {
+    public void setParkingLotGates(List<ParkingLotGateDTO> parkingLotGates) {
         this.parkingLotGates = parkingLotGates;
     }
     public ParkingLotStatus getParkingLotStatus() {
@@ -48,6 +44,7 @@ public class CreateParkingLotRequestDTO {
     }
     public void setFeesCalculatorStrategyType(FeesCalculatorStrategyType feesCalculatorStrategyType) {
         this.feesCalculatorStrategyType = feesCalculatorStrategyType;
-    }   
-     
+    }
+
+    
 }

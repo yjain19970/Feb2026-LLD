@@ -1,11 +1,4 @@
-package strategy;
-
-import exception.SpotNotFoundException;
-import model.ParkingLot;
-import model.ParkingSpot;
-import model.Vehicle;
+package parkinglot.src.strategy;
 
 public interface SpotAssignmentStrategy {
-    
-    public ParkingSpot findParkingSpot(Vehicle vehicle, ParkingLot parkingLot) throws SpotNotFoundException; 
 }

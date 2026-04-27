@@ -1,39 +1,33 @@
 package parkinglot.src.repository;
 
+import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 
 import parkinglot.src.model.ParkingLot;
 
-
-
 public class ParkingLotRepo {
-    private Map<Long,ParkingLot> parkingLotRepo; // this id should be increamental.
+    private Map<Long, ParkingLot> parkingLotRepo;
     private long lastSavedId;
 
-
-    public ParkingLotRepo(Map<Long, ParkingLot> parkingLotRepo) {
-        this.parkingLotRepo = parkingLotRepo;
+    public ParkingLotRepo() {
+        this.parkingLotRepo = new HashMap<>();
         this.lastSavedId = 0L;
     }
 
-    public Optional<ParkingLot> getById(Long id){
-        if(!parkingLotRepo.containsKey(id)){
-            return Optional.empty();
-        }
-
-        return Optional.of(parkingLotRepo.get(id));
-    }
-
-    public Optional<ParkingLot> saveParkingLot(ParkingLot parkingLot){
+    public ParkingLot save(ParkingLot parkingLot){
         lastSavedId++;
-        
+
         parkingLot.setId(lastSavedId);
         parkingLotRepo.put(lastSavedId, parkingLot);
-
-                System.out.println("Created Parking Lot with Id: " + lastSavedId);
-
-        return Optional.of(parkingLotRepo.get(lastSavedId));
+         System.out.println("Saved ParkingLot with Id: " + lastSavedId);
+        return parkingLot;
     }
-        
+
+    public ParkingLot getById(long id) throws Exception{
+        if(!parkingLotRepo.containsKey(id)){
+            throw new Exception();
+        }
+        return parkingLotRepo.get(id);
+    }
+    
 }

@@ -10,7 +10,6 @@ import parkinglot.src.model.enums.VehicleType;
 public class ParkingLot extends BaseModel {
     private List<ParkingFloor> parkingFloors;
     private List<ParkingLotGate> parkingLotGates;
-    //private List<VehicleType> supportedVehicleTypes;
     private ParkingLotStatus parkingLotStatus;
     private SpotAssignmentStrategyType spotAssignmentStrategyType;
     private FeesCalculatorStrategyType feesCalculatorStrategyType;
@@ -43,14 +42,6 @@ public class ParkingLot extends BaseModel {
         this.parkingLotGates = parkingLotGates;
     }
 
-    // public List<VehicleType> getSupportedVehicleTypes() {
-    //     return supportedVehicleTypes;
-    // }
-
-    // public void setSupportedVehicleTypes(List<VehicleType> supportedVehicleTypes) {
-    //     this.supportedVehicleTypes = supportedVehicleTypes;
-    // }
-
     public ParkingLotStatus getParkingLotStatus() {
         return parkingLotStatus;
     }
@@ -74,7 +65,4 @@ public class ParkingLot extends BaseModel {
     public void setFeesCalculatorStrategyType(FeesCalculatorStrategyType feesCalculatorStrategyType) {
         this.feesCalculatorStrategyType = feesCalculatorStrategyType;
     }
-    
-    
-    
 }

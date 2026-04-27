@@ -8,7 +8,7 @@ public class Ticket extends BaseModel {
     private Vehicle vehicle;
     private ParkingSpot assignedSpot;
     private ParkingLotGate generatedAt;
-    private Operator generatedBy;
+    public Operator generatedBy; // Optional to keep generatedBy here.
     
 
     public Ticket(String number, Date entryTime, Vehicle vehicle, ParkingSpot assignedSpot, ParkingLotGate generatedAt,

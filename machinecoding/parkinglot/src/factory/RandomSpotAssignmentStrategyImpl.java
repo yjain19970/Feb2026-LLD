@@ -1,5 +1,6 @@
 package parkinglot.src.factory;
 
-public class RandomSpotAssignmentStrategyImpl implements {
+
+public class RandomSpotAssignmentStrategyImpl  {
 
 }

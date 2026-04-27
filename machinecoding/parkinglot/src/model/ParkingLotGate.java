@@ -1,7 +1,7 @@
 package parkinglot.src.model;
 
-import model.enums.GateStatus;
-import model.enums.GateType;
+import parkinglot.src.model.enums.GateStatus;
+import parkinglot.src.model.enums.GateType;
 
 public class ParkingLotGate extends BaseModel {
     private GateType gateType; 

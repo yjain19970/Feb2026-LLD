@@ -1,7 +1,7 @@
 package parkinglot.src.model;
 
 public class Operator extends BaseModel {
-   private int empID;
+    private int empID;
     private String name;
     
     public Operator(int empID, String name) {

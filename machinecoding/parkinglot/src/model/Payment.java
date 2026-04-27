@@ -2,14 +2,14 @@ package parkinglot.src.model;
 
 import java.util.Date;
 
-import model.enums.PaymentMode;
-import model.enums.PaymentStatus;
+
+import parkinglot.src.model.enums.PaymentMode;
+
 
 public class Payment extends BaseModel {
     private PaymentMode paymentMode;
     private int amount; // integer. But actually it can be double.
     private Date time;
-    private PaymentStatus paymentStatus;
     private String referenceNumber; // payment gateway reference number.
 
     public PaymentMode getPaymentMode() {
@@ -34,14 +34,6 @@ public class Payment extends BaseModel {
 
     public void setTime(Date time) {
         this.time = time;
-    }
-
-    public PaymentStatus getPaymentStatus() {
-        return paymentStatus;
-    }
-
-    public void setPaymentStatus(PaymentStatus paymentStatus) {
-        this.paymentStatus = paymentStatus;
     }
 
     public String getReferenceNumber() {

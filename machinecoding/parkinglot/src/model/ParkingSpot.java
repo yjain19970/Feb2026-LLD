@@ -3,8 +3,9 @@ package parkinglot.src.model;
 import java.util.Arrays;
 import java.util.List;
 
-import model.enums.ParkingSpotStatus;
-import model.enums.VehicleType;
+import parkinglot.src.model.enums.ParkingSpotStatus;
+import parkinglot.src.model.enums.VehicleType;
+
 
 public class ParkingSpot extends BaseModel {
     private List<VehicleType> supportedVehicleTypes;
@@ -41,12 +42,4 @@ public class ParkingSpot extends BaseModel {
     public void setSpotNumber(int spotNumber) {
         this.spotNumber = spotNumber;
     }
-
-    // public ParkingFloor getParkingFloor() {
-    //     return parkingFloor;
-    // }
-
-    // public void setParkingFloor(ParkingFloor parkingFloor) {
-    //     this.parkingFloor = parkingFloor;
-    // }    
 }

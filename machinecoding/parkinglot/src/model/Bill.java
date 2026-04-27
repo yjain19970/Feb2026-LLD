@@ -3,7 +3,9 @@ package parkinglot.src.model;
 import java.sql.Date;
 import java.util.List;
 
-import model.enums.BillStatus;
+import parkinglot.src.model.enums.BillStatus;
+import parkinglot.src.model.enums.VehicleType;
+
 
 
 public class Bill extends BaseModel {
@@ -14,6 +16,9 @@ public class Bill extends BaseModel {
     private Operator generatedBy;
     private BillStatus billStatus;
     private List<Payment> payments;
+    private VehicleType vehicleType;
+    
+
     public Date getExitTime() {
         return exitTime;
     }
@@ -55,6 +60,12 @@ public class Bill extends BaseModel {
     }
     public void setPayments(List<Payment> payments) {
         this.payments = payments;
+    }
+    public VehicleType getVehicleType() {
+        return vehicleType;
+    }
+    public void setVehicleType(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
     }
 
     
