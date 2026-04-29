@@ -19,8 +19,9 @@ import lombok.Setter;
 @MappedSuperclass
 public class BaseModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // This will take care of automaticall incrementing the id of the record.
     private long id;
+    
     @CreatedDate
     @CreationTimestamp
     private Date createdAt;
