@@ -1,15 +1,13 @@
-package parkinglot.src.controller;
+package controller;
 import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 
-import parkinglot.src.dto.CreateParkingLotRequestDTO;
-import parkinglot.src.dto.CreateParkingLotResponseDTO;
-import parkinglot.src.model.ParkingLot;
-import parkinglot.src.service.ParkingLotService;
-import parkinglot.src.transformer.ParkingLotTranslator;
-
-
+import dto.CreateParkingLotRequestDTO;
+import dto.CreateParkingLotResponseDTO;
+import model.ParkingLot;
+import service.ParkingLotService;
+import transformer.ParkingLotTranslator;
 
 /**
  * Backend related usecase: support creating of a parking lot.

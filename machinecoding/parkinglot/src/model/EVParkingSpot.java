@@ -1,4 +1,4 @@
-package parkinglot.src.model;
+package model;
 
 public class EVParkingSpot extends ParkingSpot {
     public EVParkingSpot(int spotNumber) {

@@ -1,16 +1,16 @@
-package parkinglot.src.model;
+package model;
 
 import java.util.Arrays;
 import java.util.List;
 
-import parkinglot.src.model.enums.ParkingSpotStatus;
-import parkinglot.src.model.enums.VehicleType;
+import model.enums.ParkingSpotStatus;
+import model.enums.VehicleType;
 
 
 public class ParkingSpot extends BaseModel {
     private List<VehicleType> supportedVehicleTypes;
     private ParkingSpotStatus parkingSpotStatus;
-    private int spotNumber;
+    private int spotNumber; // Ideally should have been a string.
     
 
     public ParkingSpot(int spotNumber) {

@@ -1,4 +1,4 @@
-package parkinglot.src.model;
+package model;
 
 public class Meter {
     private Consumption consumption;

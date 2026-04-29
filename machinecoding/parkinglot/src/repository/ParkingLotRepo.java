@@ -1,9 +1,11 @@
-package parkinglot.src.repository;
+package repository;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
-import parkinglot.src.model.ParkingLot;
+import model.ParkingLot;
+
 
 public class ParkingLotRepo {
     private Map<Long, ParkingLot> parkingLotRepo;
@@ -23,11 +25,11 @@ public class ParkingLotRepo {
         return parkingLot;
     }
 
-    public ParkingLot getById(long id) throws Exception{
+    public Optional<ParkingLot> getById(long id) throws Exception{
         if(!parkingLotRepo.containsKey(id)){
-            throw new Exception();
+            Optional.empty();
         }
-        return parkingLotRepo.get(id);
+        return Optional.of(parkingLotRepo.get(id));
     }
     
 }

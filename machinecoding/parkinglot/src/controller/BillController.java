@@ -1,4 +1,4 @@
-package parkinglot.src.controller;
+package controller;
 
 public class BillController {
     

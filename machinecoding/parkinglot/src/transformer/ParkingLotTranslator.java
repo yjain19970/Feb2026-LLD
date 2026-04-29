@@ -1,22 +1,24 @@
-package parkinglot.src.transformer;
+package transformer;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import parkinglot.src.dto.CreateParkingLotRequestDTO;
-import parkinglot.src.dto.CreateParkingLotResponseDTO;
-import parkinglot.src.dto.ParkingFloorDTO;
-import parkinglot.src.dto.ParkingLotGateDTO;
-import parkinglot.src.model.ParkingFloor;
-import parkinglot.src.model.ParkingLot;
-import parkinglot.src.model.ParkingLotGate;
+import dto.CreateParkingLotRequestDTO;
+import dto.CreateParkingLotResponseDTO;
+import dto.ParkingFloorDTO;
+import dto.ParkingLotGateDTO;
+import model.ParkingFloor;
+import model.ParkingLot;
+import model.ParkingLotGate;
+
+
 
 public class ParkingLotTranslator {
     
     public static List<ParkingFloor> transform(List<ParkingFloorDTO> floors){
         List<ParkingFloor> response = new ArrayList<>();
         for(ParkingFloorDTO floor: floors){
-            ParkingFloor parkingFloor = new ParkingFloor(null, null);
+            ParkingFloor parkingFloor = new ParkingFloor(floor.getParkingSpot(), "F1");
             response.add(parkingFloor);
         }
         return response;

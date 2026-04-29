@@ -1,4 +1,4 @@
-package parkinglot.src.model;
+package model;
 
 public class Operator extends BaseModel {
     private int empID;

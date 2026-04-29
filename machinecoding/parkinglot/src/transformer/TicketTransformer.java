@@ -1,4 +1,4 @@
-package parkinglot.src.transformer;
+package transformer;
 
 public class TicketTransformer {
     

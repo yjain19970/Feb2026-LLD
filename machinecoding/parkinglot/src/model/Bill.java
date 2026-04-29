@@ -1,10 +1,11 @@
-package parkinglot.src.model;
+package model;
 
 import java.sql.Date;
 import java.util.List;
 
-import parkinglot.src.model.enums.BillStatus;
-import parkinglot.src.model.enums.VehicleType;
+import model.enums.BillStatus;
+import model.enums.VehicleType;
+
 
 
 

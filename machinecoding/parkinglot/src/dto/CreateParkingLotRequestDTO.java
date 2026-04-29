@@ -1,10 +1,11 @@
-package parkinglot.src.dto;
+package dto;
 
 import java.util.List;
 
-import parkinglot.src.model.enums.FeesCalculatorStrategyType;
-import parkinglot.src.model.enums.ParkingLotStatus;
-import parkinglot.src.model.enums.SpotAssignmentStrategyType;
+import model.enums.FeesCalculatorStrategyType;
+import model.enums.ParkingLotStatus;
+import model.enums.SpotAssignmentStrategyType;
+
 
 // DTO is a POJO class.
 public class CreateParkingLotRequestDTO {

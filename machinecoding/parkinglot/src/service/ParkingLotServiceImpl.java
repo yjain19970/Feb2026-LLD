@@ -1,30 +1,36 @@
-package parkinglot.src.service;
+package service;
 
 import java.util.Arrays;
 import java.util.List;
 
-import parkinglot.src.model.ParkingFloor;
-import parkinglot.src.model.ParkingLot;
-import parkinglot.src.model.ParkingLotGate;
-import parkinglot.src.model.enums.FeesCalculatorStrategyType;
-import parkinglot.src.model.enums.ParkingLotStatus;
-import parkinglot.src.model.enums.SpotAssignmentStrategyType;
-import parkinglot.src.model.enums.VehicleType;
-import parkinglot.src.repository.ParkingFloorRepo;
-import parkinglot.src.repository.ParkingLotGateRepo;
-import parkinglot.src.repository.ParkingLotRepo;
+import model.ParkingFloor;
+import model.ParkingLot;
+import model.ParkingLotGate;
+import model.enums.FeesCalculatorStrategyType;
+import model.enums.ParkingLotStatus;
+import model.enums.SpotAssignmentStrategyType;
+import model.enums.VehicleType;
+import repository.ParkingFloorRepo;
+import repository.ParkingLotGateRepo;
+import repository.ParkingLotRepo;
+import repository.ParkingSpotRepo;
+
+
+
 
 public class ParkingLotServiceImpl implements ParkingLotService {
     private ParkingFloorRepo parkingFloorRepo;
     private ParkingLotRepo parkingLotRepo;
     private ParkingLotGateRepo parkingLotGateRepo;
+    private ParkingSpotRepo parkingSpotRepo;
     
 
     public ParkingLotServiceImpl(ParkingFloorRepo parkingFloorRepo, ParkingLotRepo parkingLotRepo,
-            ParkingLotGateRepo parkingLotGateRepo) {
+            ParkingLotGateRepo parkingLotGateRepo, ParkingSpotRepo parkingSpotRepo) {
         this.parkingFloorRepo = parkingFloorRepo;
         this.parkingLotRepo = parkingLotRepo;
         this.parkingLotGateRepo = parkingLotGateRepo;
+        this.parkingSpotRepo = parkingSpotRepo;
     }
 
 
@@ -33,9 +39,12 @@ public class ParkingLotServiceImpl implements ParkingLotService {
             ParkingLotStatus parkingLotStatus, SpotAssignmentStrategyType spotAssignmentStrategyType,
             FeesCalculatorStrategyType feesCalculatorStrategyType) {
         System.out.println("Inside createParkingLot ServiceImpl -> ");
+
         // S1. Save the Parking Floor
         for(ParkingFloor parkingFloor : parkingFloors){
             parkingFloorRepo.save(parkingFloor);
+            // In each floor, you will also have to persist all the parkingSpots and then put it inside ParkingSpot
+            // so that Id is reflected correctly!
         }
 
         // S2. Save parkingLotGates

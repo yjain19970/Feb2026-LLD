@@ -1,8 +1,22 @@
-package parkinglot.src.factory;
+package factory;
 
-import parkinglot.src.model.enums.SpotAssignmentStrategyType;
-import parkinglot.src.service.SpotAssignmentStrategy;
+import model.enums.SpotAssignmentStrategyType;
+import strategy.AssignFirstEmptySpotStrategy;
+import strategy.ManualSpotAssignmentStrategy;
+import strategy.RandomSpotAssignmentStrategyImpl;
 
 public class ParkingSpotAssignmentFactory {
     
+    public static strategy.SpotAssignmentStrategy getSpotAssignmentByType(SpotAssignmentStrategyType type){
+        switch (type) {
+            case MANUAL:
+                return new ManualSpotAssignmentStrategy();
+            case RANDOM:
+                return new RandomSpotAssignmentStrategyImpl();
+            case ASSIGN_FIRST_EMPTY:
+                return new AssignFirstEmptySpotStrategy();
+            default:
+                return new ManualSpotAssignmentStrategy();
+        }
+    }
 }

@@ -1,6 +1,6 @@
-package parkinglot.src.model;
+package model;
 
-import parkinglot.src.model.enums.VehicleType;
+import model.enums.VehicleType;
 
 public class Vehicle extends BaseModel {
     private String regNo;

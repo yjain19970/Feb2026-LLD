@@ -1,4 +1,4 @@
-package parkinglot.src.exception;
+package exception;
 
 public class SpotNotFoundException extends Exception {
 

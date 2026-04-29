@@ -1,4 +1,4 @@
-package parkinglot.src.dto;
+package dto;
 
 public class ParkingSpotDTO {
     

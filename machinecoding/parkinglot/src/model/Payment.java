@@ -1,9 +1,10 @@
-package parkinglot.src.model;
+package model;
 
 import java.util.Date;
 
+import model.enums.PaymentMode;
 
-import parkinglot.src.model.enums.PaymentMode;
+
 
 
 public class Payment extends BaseModel {

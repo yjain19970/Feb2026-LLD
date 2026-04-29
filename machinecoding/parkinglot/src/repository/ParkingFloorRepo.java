@@ -1,9 +1,11 @@
-package parkinglot.src.repository;
+package repository;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import parkinglot.src.model.ParkingFloor;
+import model.ParkingFloor;
+
+
 
 public class ParkingFloorRepo {
     private Map<Long, ParkingFloor> parkingFloorRepo;

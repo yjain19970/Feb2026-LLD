@@ -1,4 +1,4 @@
-package parkinglot.src.model.enums;
+package model.enums;
 
 public enum BillStatus {
     

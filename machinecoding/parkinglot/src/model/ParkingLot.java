@@ -1,10 +1,11 @@
-package parkinglot.src.model;
+package model;
 import java.util.List;
 
-import parkinglot.src.model.enums.FeesCalculatorStrategyType;
-import parkinglot.src.model.enums.ParkingLotStatus;
-import parkinglot.src.model.enums.SpotAssignmentStrategyType;
-import parkinglot.src.model.enums.VehicleType;
+import model.enums.FeesCalculatorStrategyType;
+import model.enums.ParkingLotStatus;
+import model.enums.SpotAssignmentStrategyType;
+import model.enums.VehicleType;
+
 
 
 public class ParkingLot extends BaseModel {

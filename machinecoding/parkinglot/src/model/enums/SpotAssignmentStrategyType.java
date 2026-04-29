@@ -1,6 +1,7 @@
-package parkinglot.src.model.enums;
+package model.enums;
 
 public enum SpotAssignmentStrategyType {
     RANDOM,
-    MANUAL
+    MANUAL,
+    ASSIGN_FIRST_EMPTY
 }
