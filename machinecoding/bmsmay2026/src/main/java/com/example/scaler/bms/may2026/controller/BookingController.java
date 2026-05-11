@@ -11,6 +11,7 @@ import com.example.scaler.bms.may2026.dto.CreateBookingRequestDTO;
 import com.example.scaler.bms.may2026.dto.CreateBookingResponseDTO;
 import com.example.scaler.bms.may2026.dto.TicketDTO;
 import com.example.scaler.bms.may2026.exception.InvalidRequestException;
+import com.example.scaler.bms.may2026.exception.SeatNotAvailableException;
 import com.example.scaler.bms.may2026.model.Booking;
 import com.example.scaler.bms.may2026.service.BookingServiceImpl;
 import com.example.scaler.bms.may2026.translator.BookingTranslator;
@@ -40,7 +41,7 @@ public class BookingController {
 
     
     @PostMapping("/ticket")
-    public CreateBookingResponseDTO bookTicket(@RequestBody CreateBookingRequestDTO requestDTO) throws InvalidRequestException{
+    public CreateBookingResponseDTO bookTicket(@RequestBody CreateBookingRequestDTO requestDTO) throws InvalidRequestException, SeatNotAvailableException{
         if(isInvalidRequest(requestDTO)){
             throw new InvalidRequestException("Invalid Request.");
         }
